@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShreeKrishna Hospital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-blur blur-one"></div>
+    <div class="background-blur blur-two"></div>
+
+    <main class="app-shell">
+      <section class="hero-panel">
+        <div class="brand-row">
+          <span class="brand-icon">❤</span>
+          <span class="brand-name">ShreeKrishna Hospital</span>
+        </div>
+
+        <h1>Predict heart risk in seconds.</h1>
+        <p class="subtitle">
+          A smart clinical risk assessment designed to help users understand
+          potential heart disease indicators using a trained machine-learning model.
+        </p>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <span class="label">AI Model</span>
+            <strong>Random Forest</strong>
+          </div>
+          <div class="info-card">
+            <span class="label">Risk Check</span>
+            <strong>Live Analysis</strong>
+          </div>
+          <div class="info-card">
+            <span class="label">Status</span>
+            <strong>Ready</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-panel">
+        <div class="panel-header">
+          <h2>Patient Details</h2>
+          <span class="status-dot"></span>
+        </div>
+
+        <form id="predict-form">
+          <div class="input-grid">
+            <label>
+              <span>Age</span>
+              <input id="age" type="number" min="1" max="120" value="45" />
+            </label>
+
+            <label>
+              <span>Sex</span>
+              <select id="sex">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Chest Pain Type</span>
+              <select id="cp">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Resting Blood Pressure</span>
+              <input id="trestbps" type="number" min="50" max="250" value="130" />
+            </label>
+
+            <label>
+              <span>Cholesterol</span>
+              <input id="chol" type="number" min="50" max="700" value="240" />
+            </label>
+
+            <label>
+              <span>Fasting Blood Sugar</span>
+              <select id="fbs">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Resting ECG</span>
+              <select id="restecg">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Max Heart Rate</span>
+              <input id="thalach" type="number" min="50" max="250" value="150" />
+            </label>
+
+            <label>
+              <span>Exercise Angina</span>
+              <select id="exang">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Oldpeak</span>
+              <input id="oldpeak" type="number" min="0" max="10" step="0.1" value="1.0" />
+            </label>
+
+            <label>
+              <span>ST Slope</span>
+              <select id="slope">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Major Vessels</span>
+              <select id="ca">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Thal</span>
+              <select id="thal">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </label>
+          </div>
+
+          <button type="submit" class="predict-btn">Check Risk</button>
+        </form>
+
+        <div id="result-box" class="result-box hidden">
+          <div class="result-head">
+            <span class="risk-label">Risk Result</span>
+            <span id="risk-tag" class="risk-tag">Low</span>
+          </div>
+
+          <div class="probability-wrap">
+            <div class="probability-text">
+              <span>Confidence</span>
+              <strong id="probability-value">0%</strong>
+            </div>
+            <div class="meter">
+              <div id="probability-bar" class="meter-fill"></div>
+            </div>
+          </div>
+
+          <p id="result-message" class="result-message">
+            Prediction result will appear here.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
