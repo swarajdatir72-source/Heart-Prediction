@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <title>HeartPredict AI | Educational Demo</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-icon">♥</span>
+      HeartPredict <span class="accent">AI</span>
+    </a>
+    <span class="status"><span></span> ML Demo</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">MACHINE LEARNING PROJECT</div>
+      <h1>Understand your heart.<br><span>Explore the prediction.</span></h1>
+      <p>
+        Enter the dataset features to see an educational prediction
+        from a machine-learning model trained on heart.csv.
+      </p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Patient parameters</h2>
+            <p>Enter all 13 model inputs.</p>
+          </div>
+          <span class="count">13 FEATURES</span>
+        </div>
+
+        <form id="predictionForm">
+          <div class="form-grid">
+            <label>Age (years)
+              <input type="number" name="age" min="1" max="120" value="45" required>
+            </label>
+
+            <label>Sex
+              <select name="sex" required>
+                <option value="1">Male (dataset code 1)</option>
+                <option value="0">Female (dataset code 0)</option>
+              </select>
+            </label>
+
+            <label>Chest pain type
+              <select name="cp" required>
+                <option value="0">Type 0</option>
+                <option value="1">Type 1</option>
+                <option value="2">Type 2</option>
+                <option value="3">Type 3</option>
+              </select>
+            </label>
+
+            <label>Resting BP (mm Hg)
+              <input type="number" name="trestbps" min="40" max="300" value="120" required>
+            </label>
+
+            <label>Cholesterol (mg/dL)
+              <input type="number" name="chol" min="50" max="800" value="200" required>
+            </label>
+
+            <label>Fasting blood sugar
+              <select name="fbs" required>
+                <option value="0">0 — 120 mg/dL or less in common encoding</option>
+                <option value="1">1 — Above threshold in common encoding</option>
+              </select>
+            </label>
+
+            <label>Resting ECG
+              <select name="restecg" required>
+                <option value="0">Code 0</option>
+                <option value="1">Code 1</option>
+                <option value="2">Code 2</option>
+              </select>
+            </label>
+
+            <label>Maximum heart rate
+              <input type="number" name="thalach" min="40" max="250" value="150" required>
+            </label>
+
+            <label>Exercise-induced angina
+              <select name="exang" required>
+                <option value="0">No (0)</option>
+                <option value="1">Yes (1)</option>
+              </select>
+            </label>
+
+            <label>Oldpeak
+              <input type="number" name="oldpeak" min="0" max="15" step="0.1" value="1.0" required>
+            </label>
+
+            <label>Slope
+              <select name="slope" required>
+                <option value="0">Code 0</option>
+                <option value="1">Code 1</option>
+                <option value="2">Code 2</option>
+              </select>
+            </label>
+
+            <label>Major vessels (ca)
+              <select name="ca" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4 (if supported by dataset)</option>
+              </select>
+            </label>
+
+            <label>Thal
+              <select name="thal" required>
+                <option value="0">Code 0</option>
+                <option value="1">Code 1</option>
+                <option value="2">Code 2</option>
+                <option value="3">Code 3</option>
+              </select>
+            </label>
+          </div>
+
+          <button type="submit" id="predictBtn">
+            <span>Analyze parameters</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <p class="form-note">
+            Use valid dataset codes. This tool is for educational purposes only.
+          </p>
+        </form>
+      </section>
+
+      <aside class="panel result-panel" aria-live="polite">
+        <div class="result-symbol">♥</div>
+        <div class="eyebrow">MODEL OUTPUT</div>
+        <h2 id="resultTitle">Ready to analyze</h2>
+        <p id="resultText">
+          Submit the form to see the model's output here.
+        </p>
+
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span>Predicted class</span>
+          <strong id="resultClass">—</strong>
+        </div>
+        <div class="result-row">
+          <span>Model score</span>
+          <strong id="resultScore">—</strong>
+        </div>
+
+        <div id="errorMessage" class="error" hidden></div>
+        <div id="notice" class="notice">
+          This is not a diagnosis. Seek medical advice for health concerns.
+        </div>
+      </aside>
+    </div>
+
+    <section class="disclaimer">
+      <strong>Medical disclaimer</strong>
+      <p>
+        This demonstration is not a medical device. Predictions may be
+        inaccurate or biased and must not be used to make treatment decisions.
+        Consult a qualified healthcare professional about your health.
+      </p>
+    </section>
+  </main>
+
+  <footer>HeartPredict AI · Machine Learning Project</footer>
+</body>
+</html>
